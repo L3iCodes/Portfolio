@@ -1,3 +1,41 @@
+@import "tailwindcss";
+
 :root {
-  font-family: sans-serif, system-ui, Avenir, Helvetica, Arial;
+  background-color: var(--color-primary);
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+  line-height: 1.5;
 }
+
+@theme {
+  --color-primary: #171717;
+  --color-secondary: #1C1C1C;
+  --color-accent: #2B2B2B;
+  --color-text: #F5F5F5;
+  --color-subtext: #858585;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h4 {
+  font-size: 12px;
+}
+
+h5 {
+  font-size: 10px;
+}
+
+.pageWrapper{
+  @apply m-5 md:my-20 md:mx-[30%]
+}
+
