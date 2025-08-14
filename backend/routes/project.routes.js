@@ -4,6 +4,6 @@ import { addProject, retrieveAllProject } from '../controllers/project.controlle
 const router = express.Router();
 
 router.post('/add-project', addProject);
-router.post('/all-project', retrieveAllProject);
+router.get('/all-project', retrieveAllProject);
 
 export default router;

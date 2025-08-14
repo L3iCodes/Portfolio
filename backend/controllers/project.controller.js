@@ -45,9 +45,13 @@ export const addProject = async (req, res) => {
 
         const newProject = {
             name: 'Vysta',
-            subName: 'A movie discovery and watchlist managemap app',
+            subtitle: 'A movie discovery and watchlist managemap app',
             description: 'A React-based movie web app powered by TMDB. Users can browse and search for movies, create accounts, log in, and manage a personal watchlist. Built with React for the frontend, Node.js for the backend, and MongoDB for data storage.',
-            features
+            features,
+            tags: ['Javascript', 'React' , 'TailwinCSS', 'NodeJs', 'ExpressJS', 'MongoDB'],
+            link: 'https://github.com/L3iCodes/Vysta',
+            demo: 'someLink.com',
+            img: 'vystaImg'
         };
 
         await Project.create(newProject);

@@ -8,9 +8,12 @@ const FeatureSchema = new mongoose.Schema({
 
 const ProjectSchema = new mongoose.Schema({
     name: String,
-    subName: String,
+    subtitle: String,
     description: String,
+    tags: [],
     features: [FeatureSchema],
+    link: String,
+    demo: String,
     img: String,
 });
 
