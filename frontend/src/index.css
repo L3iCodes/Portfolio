@@ -7,9 +7,6 @@
   line-height: 1.5;
 }
 
-body{
-  height: 100vh;
-}
 
 @theme {
   --color-primary: #171717;
@@ -28,11 +25,11 @@ h2 {
 }
 
 h3 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 h4 {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 h5 {
@@ -40,6 +37,6 @@ h5 {
 }
 
 .pageWrapper{
-  @apply m-5 sm:m-10 sm:mx-[10%] xl:mx-[20%] 2xl:mx-[30%] relative
+  @apply m-5 pb-30 sm:m-10 sm:mx-[10%] xl:mx-[20%] 2xl:mx-[30%] relative
 }
 

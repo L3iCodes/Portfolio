@@ -8,8 +8,8 @@ function App() {
     <>
     
     <div className='pageWrapper'>
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
         </Routes>

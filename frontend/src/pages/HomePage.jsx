@@ -2,6 +2,7 @@ import { Computer, Linkedin, Github } from 'lucide-react'
 import { Icon } from '@iconify/react'
 import Button from '../components/Button';
 import TechStack from '../components/TechStack';
+import Experience from '../components/Experience';
 
 export default function HomePage(){
     return(
@@ -21,8 +22,15 @@ export default function HomePage(){
                 <TechStack />
             </div>
 
+            <div className='mb-20'>
+                <h2 className='font-medium mb-8'>Experience</h2>
+                <Experience />
+            </div>
+
             <div>
-                <h2 className='font-medium'>Experience</h2>
+                <div className='flex'>
+                    <h2 className='font-medium mb-8'>Featured Projects</h2>
+                </div>
                 
             </div>
         </div>
