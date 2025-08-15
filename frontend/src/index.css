@@ -16,6 +16,15 @@
   --color-subtext: #858585;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
 h1 {
   font-size: 40px;
 }
@@ -37,6 +46,6 @@ h5 {
 }
 
 .pageWrapper{
-  @apply m-5 pb-30 sm:m-10 sm:mx-[10%] xl:mx-[20%] 2xl:mx-[30%] relative
+  @apply m-5 pb-30 sm:mx-[15%] lg:mx-[20%] xl:mx-[25%] 2xl:mx-[30%] relative
 }
 

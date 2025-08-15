@@ -1,0 +1,30 @@
+import Tags from "./Tags"
+import img from "../VystaImg.png"
+
+export default function Card({ id, name, tags }){
+    return(
+        <div className="w-full  bg-secondary rounded-[5px] overflow-hidden border-accent border-1 shadow-sm shadow-black/10">
+            <div className={`h-[70%] bg-accent overflow-hidden
+                            transition-transform 
+                            hover:scale-102`}>
+                <img 
+                    src={img} 
+                    alt={name + '|img'} 
+                    className="w-full h-full object-contain"
+                />
+            </div>
+            
+            <div className="flex items-center w-full h-[30%] p-2">
+                <div className="flex flex-col gap-2 w-full">
+                    <h4 className="font-semibold truncate">{name}</h4>
+                    <div className="flex w-full gap-1 overflow-y-auto">
+                        {tags.map((element) => (
+                            <Tags tag={element}/>
+                        ))}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    )
+}

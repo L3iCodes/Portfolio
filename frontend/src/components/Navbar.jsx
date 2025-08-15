@@ -20,7 +20,7 @@ export default function Navbar(){
 function mobileNavigation(currentPath){
     return(
         <>
-            <div className='flex items-center justify-center gap-20 w-full  md:hidden'>
+            <div className='items-center justify-center gap-20 w-full  md:hidden'>
                 <div title='Home' className='flex flex-col items-center justify-center hover:bg-primary p-1 h-[50px] w-[50px] rounded-[5px]'>
                     <House />
                     <h5>Home</h5>
@@ -44,7 +44,7 @@ function mobileNavigation(currentPath){
 function desktopNavigation(currentPath){
     return(
         <>
-            <div className='flex items-center gap-20 mx-4 w-full'>
+            <div className='hidden  items-center gap-20 mx-4 w-full md:flex'>
                 <h3 className='text-subtext font-bold tracking-wide'>Wilhelm</h3>
 
                 <div className='flex items-center ml-auto text-accent font-bold gap-8 '>
