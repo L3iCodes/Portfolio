@@ -45,7 +45,10 @@ h5 {
   font-size: 10px;
 }
 
+body{
+  @apply flex justify-center items-center
+}
 .pageWrapper{
-  @apply m-5 pb-30 sm:mx-[15%] lg:mx-[20%] xl:mx-[25%] 2xl:mx-[30%] relative
+  @apply m-5 pb-30  max-w-[760px] relative
 }
 

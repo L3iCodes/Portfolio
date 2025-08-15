@@ -8,15 +8,15 @@ function App() {
   return (
     <>
     
-    <div className='pageWrapper'>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/projects' element={<ProjectPage />} />
-        </Routes>
-      </Router>
-    </div>
+    
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/projects' element={<ProjectPage />} />
+      </Routes>
+    </Router>
+    
       
     </>
   )

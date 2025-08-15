@@ -32,7 +32,7 @@ export default function TechStack() {
                         style={{ backgroundColor: element.color }}
                     />
 
-                    <h3>{element.name}</h3>
+                    <h4>{element.name}</h4>
                 </div>
             ))}
         </div>
