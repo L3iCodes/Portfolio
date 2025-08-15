@@ -8,7 +8,7 @@ export default function Navbar(){
     const currentPath = location.pathname;
 
     return(
-        <div className={`flex w-full bg-secondary border-accent border-1 rounded-[5px] shadow-sm shadow-black/10
+        <div className={`flex w-full bg-secondary border-accent border-1 rounded-[5px] shadow-sm shadow-black/10 z-9
                         h-[60px] fixed bottom-0 left-0
                         md:sticky md:h-[40px] md:top-0 md:left-0`}>
             {mobileNavigation(currentPath, navigate)}
@@ -58,7 +58,7 @@ function mobileNavigation(currentPath, navigate){
 function desktopNavigation(currentPath, navigate){
     return(
         <>
-            <div className='hidden  items-center gap-20 mx-4 w-full md:flex'>
+            <div className='hidden items-center gap-20 mx-4 w-full md:flex'>
                 <h3 className='text-subtext font-bold tracking-wide'>Wilhelm</h3>
 
                 <div className='flex items-center ml-auto text-accent font-bold gap-8 '>

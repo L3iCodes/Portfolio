@@ -7,15 +7,15 @@ import ProjectPage from './pages/ProjectPage'
 function App() {
   return (
     <>
-    
-    
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/projects' element={<ProjectPage />} />
-      </Routes>
-    </Router>
+    <div className='pageWrapper'>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/projects' element={<ProjectPage />} />
+        </Routes>
+      </Router>
+    </div>
     
       
     </>
