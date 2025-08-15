@@ -7,7 +7,6 @@ import { useRetrieveAllProject } from '../hooks/useRetrieveAllProject';
 export default function HomePage(){
     
     const { data, isLoading, error } = useRetrieveAllProject();
-    console.log(data)
 
     return(
         <div className="flex flex-col gap-25 w-full h-full">

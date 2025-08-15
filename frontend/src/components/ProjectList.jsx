@@ -12,24 +12,6 @@ export default function ProjectList({ list }){
                     tags={project.tags}
                 />
             ))}
-
-            {list.map((project, id) => (
-                <Card 
-                    key={project._id}
-                    id={project._id}
-                    name={project.name + ': ' + project.subtitle}
-                    tags={project.tags}
-                />
-            ))}
-
-            {list.map((project, id) => (
-                <Card 
-                    key={project._id}
-                    id={project._id}
-                    name={project.name + ': ' + project.subtitle}
-                    tags={project.tags}
-                />
-            ))}
             
         </div>
     )
