@@ -6,7 +6,7 @@ import ProjectPreview from "../components/ProjectPreview";
 
 
 export default function ProjectPage(){
-    const { data, loading, error } = useRetrieveAllProject()
+    const { data, isLoading, error } = useRetrieveAllProject()
     const [ openPreview, setOpenPreview ] = useState(false);
     const [ project, setProject ] = useState([]);
     
@@ -35,12 +35,11 @@ export default function ProjectPage(){
                     showContact={false}
                 />
 
-                {!loading && (
+                {!isLoading && (
                     <ProjectList list={data} onPreview={onPreview}/>
                 )}
                 
             </div>
- 
         </>
         
     )

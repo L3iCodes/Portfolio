@@ -70,7 +70,7 @@ function desktopNavigation(currentPath, navigate){
                         className={`${currentPath === '/projects' && ('text-text')} cursor-pointer hover:text-subtext`}>Projects</h4>
                     <h4 
                         onClick={() => navigate('/about')}
-                        className={`${currentPath === 'about' && ('text-text')} cursor-pointer hover:text-subtext`}>About</h4>
+                        className={`${currentPath === '/about' && ('text-text')} cursor-pointer hover:text-subtext`}>About</h4>
                 </div>
             </div>
             

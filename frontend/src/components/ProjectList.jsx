@@ -4,8 +4,8 @@ export default function ProjectList({ list, onPreview }){
     
     const openProject = (index) => {
         // Return selected project information
-        onPreview(list[index])
-    }
+        onPreview(list[index]);
+    };
 
     return(
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
