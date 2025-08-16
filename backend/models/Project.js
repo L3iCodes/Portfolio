@@ -12,6 +12,7 @@ const ProjectSchema = new mongoose.Schema({
     description: String,
     tags: [],
     features: [FeatureSchema],
+    featured: Boolean,
     link: String,
     demo: String,
     img: String,
