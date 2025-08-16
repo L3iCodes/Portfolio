@@ -2,28 +2,15 @@ import TechStack from '../components/TechStack';
 import Experience from '../components/Experience';
 import Header from '../components/Header';
 import ProjectList from '../components/ProjectList';
-import { useRetrieveAllProject } from '../hooks/useRetrieveAllProject';
 import ProjectPreview from '../components/ProjectPreview';
+import { useProjectData } from '../hooks/useProjectData';
+import { usePreview } from '../hooks/usePreview';
 import { useState } from 'react';
 
 export default function HomePage(){
-    
-    const { data, isLoading, error } = useRetrieveAllProject();
-    console.log(data)
-    const [ openPreview, setOpenPreview ] = useState(false);
-    const [ project, setProject ] = useState([]);
-
-    const onPreview = (project) => {
-        setOpenPreview(true);
-        setProject(project);
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closePreview = () => {
-        setOpenPreview(false);
-        setProject([]);
-        document.body.style.overflow = 'auto';
-    };
+    const { project_list } = useProjectData()
+    const { data, isLoading, error } = project_list;
+    const {openPreview, project, onPreview, closePreview} = usePreview()
 
     return(
         <>

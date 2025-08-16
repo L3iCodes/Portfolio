@@ -13,6 +13,8 @@ export default function AboutPage(){
 
             <div className="flex flex-col gap-5 md:flex-row ">
                 <div className="flex flex-col md:w-[50%] gap-5">
+
+                    {/* Education INFO */}
                     <InfoCard 
                         title={'Education'}
                         icon={"mdi:education-outline"}
@@ -25,7 +27,7 @@ export default function AboutPage(){
                                     </div>
                                     <div className="flex flex-col text-subtext">
                                         <h3 className="font-medium !text-text/90">Bicol University</h3>
-                                        <h4>BS Computer Science, cum,laude</h4>
+                                        <h4>BS Computer Science, <span className=" italic">cum laude</span></h4>
                                         <h4>August 2021 - June 2025</h4>
                                     </div>
                                 </div>
@@ -44,6 +46,7 @@ export default function AboutPage(){
                             </div>
                     </InfoCard>
 
+                    {/* Skills INFO */}
                     <InfoCard 
                         title={"Skills"}
                         icon={'mdi:stars-outline'}
@@ -56,9 +59,8 @@ export default function AboutPage(){
                             </div>
                         
                     </InfoCard>
-                </div>
 
-                <div className="flex flex-col md:w-[50%] gap-5">
+                    {/* Experience INFO */}
                     <InfoCard
                         title={'Experience'}
                         icon={'material-symbols:work-outline'}
@@ -74,8 +76,10 @@ export default function AboutPage(){
                                 
                             </div>
                     </InfoCard>
+                </div>
 
-
+                <div className="flex flex-col md:w-[50%] gap-5">
+                    {/* Others INFO */}
                     <InfoCard
                         title={'Seminars & Workshops'}
                         icon={'mdi:calendar-outline'}
@@ -117,7 +121,42 @@ export default function AboutPage(){
                                     </div>
                                 </div>
                             </div>
+                    </InfoCard>
 
+                    <InfoCard
+                        title={'Contact'}
+                        icon={'mdi:contact-outline'}
+                        className={'h-full'}
+                        >
+                            <h5 className="text-subtext mt-[-10px]">If you are interested in what I could offer. Please contact me</h5>
+
+                            <form className="flex flex-col w-full mt-5 gap-3 h-full">
+                                <div className="flex w-full gap-3">
+                                    <div className="flex flex-col gap-1">
+                                        <h4 className="text-text/90 !text-[12px]">Name</h4>
+                                        <input 
+                                            type="text" 
+                                            placeholder="Your name"
+                                            className="w-full text-[12px] px-2 py-1 border-1 border-accent bg-secondary rounded-[5px]"
+                                        />
+                                    </div>
+
+                                    <div className="flex flex-col gap-1">
+                                        <h4 className="text-text/90 !text-[12px]">Name</h4>
+                                        <input 
+                                            type="text" 
+                                            placeholder="Your email"
+                                            className="w-full text-[12px] px-2 py-1 border-1 border-accent bg-secondary rounded-[5px]"
+                                        />
+                                    </div>
+                                </div>
+                                <textarea className="text-[12px] px-2 py-1 border-1 border-accent bg-secondary rounded-[5px] h-full min-h-[130px] resize-none"/>
+                                <button 
+                                    onClick={(e) => e.preventDefault()}
+                                    className="text-[12px] bg-primary p-2 rounded-[5px] hover:bg-accent active:bg-primary border-1 border-accent cursor-pointer"
+                                    >Send message
+                                </button>
+                            </form>
                     </InfoCard>
                 </div>
             </div>

@@ -46,9 +46,9 @@ h5 {
 }
 
 body{
-  @apply flex justify-center items-center
+  @apply flex justify-center items-center 
 }
 .pageWrapper{
-  @apply m-5 pb-30  max-w-[760px] relative
+  @apply m-5 pb-20 md:pb-0 max-w-[760px] relative
 }
 

@@ -56,7 +56,7 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
                         onClick={() => {
                             const email = 'janwilhelmtan.sy@gmail.com'
                             navigator.clipboard.writeText(email)
-                            alert('Email copied! : ' + email)
+                            // alert('Email copied! : ' + email)
                             setEmailClicked(true)
                             
                             setTimeout(() => {
@@ -83,9 +83,9 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
                         onClick={() => {
                             const contact = '0961 365 5723'
                             navigator.clipboard.writeText(contact)
-                            alert('Conact # copied! : ' + contact)
+                            // alert('Conact # copied! : ' + contact)
                         }} 
-                        className='text-subtext hover:text-text cursor-pointer ml-2'
+                        className='text-subtext hover:text-text active:text-subtext cursor-pointer ml-2'
                         >
                             (+63) 961 365 5723
                     </h3>
