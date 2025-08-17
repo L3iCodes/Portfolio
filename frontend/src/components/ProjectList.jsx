@@ -16,23 +16,11 @@ export default function ProjectList({ list, onPreview }){
                     index={index}
                     name={project.name + ': ' + project.subtitle}
                     tags={project.tags}
-
+                    img_url={project.image.url}
                     onClick={openProject}
                 />
             ))}
-
-            {list.map((project, index) => (
-                <Card 
-                    key={project._id}
-                    id={project._id}
-                    index={index}
-                    name={project.name + ': ' + project.subtitle}
-                    tags={project.tags}
-
-                    onClick={openProject}
-                />
-            ))}
-            
+  
         </div>
     )
 }

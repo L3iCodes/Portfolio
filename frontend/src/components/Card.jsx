@@ -1,7 +1,7 @@
 import Tags from "./Tags"
 import img from "../VystaImg.png"
 
-export default function Card({ id, index, name, tags, onClick }){
+export default function Card({ id, index, name, tags, img_url, onClick }){
     return(
         <div 
             onClick={() => onClick(index)}
@@ -11,7 +11,7 @@ export default function Card({ id, index, name, tags, onClick }){
                                 transition-transform 
                                 hover:scale-102`}>
                     <img 
-                        src={img} 
+                        src={img_url} 
                         alt={name + '|img'} 
                         className="w-full h-full object-contain"
                     />

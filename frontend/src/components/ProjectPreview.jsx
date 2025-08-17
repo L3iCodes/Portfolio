@@ -31,7 +31,7 @@ export default function ProjectPreview({ project, onClose }){
 
                         {/* Project Image */}
                         <img 
-                            src={img} 
+                            src={project.image.url} 
                             alt={project.name + '|img'} 
                             className="rounded-[5px] transition-transform hover:scale-102"
                         />
