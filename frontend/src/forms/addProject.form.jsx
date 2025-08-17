@@ -18,6 +18,11 @@ export default function AddProjectForm() {
   const [tagsInput, setTagsInput] = useState("");
   const [features, setFeatures] = useState("");
 
+  const addProject = (e) => {
+    e.preventDefault();
+    console.log(currentProject);
+  };
+
   return (
     <div className="flex flex-col gap-10">
       {/* Header */}
@@ -27,7 +32,7 @@ export default function AddProjectForm() {
       </div>
 
       {/* Form */}
-      <form className="flex flex-col gap-6 text-[14px] text-text">
+      <form onSubmit={addProject} className="flex flex-col gap-6 text-[14px] text-text">
         {/* Name + Subtitle */}
         <div className="flex gap-5">
           <FormField
@@ -56,7 +61,7 @@ export default function AddProjectForm() {
             value={tagsInput}
             rows={5}
             onChange={(val) => {
-            setTagsInput(val);
+              setTagsInput(val);
               setCurrentProject({
                 ...currentProject,
                 tags: val.split(" ").filter((tag) => tag.trim() !== ""),
@@ -134,6 +139,7 @@ export default function AddProjectForm() {
             <input
               id="img"
               type="file"
+              required={true}
               accept="image/png, image/jpeg"
               className="!w-fit text-subtext"
               onChange={(e) => {
@@ -162,7 +168,7 @@ function FormField({ id, label, value, onChange, placeholder }) {
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         className="w-full bg-secondary border border-accent rounded-md px-2 py-1 text-text"
-        required
+        required={true}
       />
     </div>
   );
@@ -179,7 +185,7 @@ function FormTextArea({ id, label, value, onChange, rows = 4, placeholder }) {
         onChange={(e) => onChange(e.target.value)}
         rows={rows}
         className="w-full bg-secondary border border-accent rounded-md px-2 py-1 resize-none text-text"
-        required
+        required={true}
       />
     </div>
   );
