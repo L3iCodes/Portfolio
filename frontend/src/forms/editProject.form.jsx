@@ -10,8 +10,6 @@ export default function EditProjectForm({ project }) {
             : ""
     );
 
-    console.log(currentProject.features)
-
     return (
         <div className="flex flex-col gap-10">
             {/* Header */}
@@ -87,8 +85,8 @@ export default function EditProjectForm({ project }) {
                     label={
                         <>
                             Features 
-                            <span className="text-subtext text-[10px] ml-2">
-                                (Format: name-description, e.g. Home Page - this is the description)
+                            <span className="text-text/80 text-[10px] italic ml-2">
+                                (Format: name-description, e.g. Home Page-this is the description)
                             </span>
                         </>
                     }
