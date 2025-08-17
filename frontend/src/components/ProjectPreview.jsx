@@ -43,7 +43,12 @@ export default function ProjectPreview({ project, onClose }){
                                 <h5 className="text-subtext">View the full information here</h5>
                             </div>
                             <div className="flex items-center gap-1 w-[50%]">
-                                <Button 
+                                <Button
+                                    onClick={() => window.open(
+                                        project.github_url, 
+                                        "_blank", 
+                                        "noopener,noreferrer"
+                                    )}
                                     className={'gap-1 w-[50%]  bg-primary border-1 border-accent shadow-sm'}
                                     >
                                             <Icon 
@@ -53,11 +58,27 @@ export default function ProjectPreview({ project, onClose }){
                                             />
                                             <h4>Code</h4>
                                 </Button>
-                                <Button 
-                                    className={'w-[50%] border-1 border-accent'}
-                                    >
-                                        <h4>Demo</h4>
-                                </Button>
+                                
+                                {!project.demo_url || project.demo_url === 'N/A'
+                                    ? (<Button
+                                        disabled={true} 
+                                        className={'w-[50%] border-1 border-accent !bg-primary text-subtext !cursor-none'}
+                                        >
+                                            <h4>Unavailable</h4>
+                                    </Button>)
+                                    : (<Button
+                                        onClick={() => window.open(
+                                            project.demo_url, 
+                                            "_blank", 
+                                            "noopener,noreferrer"
+                                        )}
+                                        className={'w-[50%] border-1 border-accent !cursor-none'}
+                                        >
+                                            <h4>Demo</h4>
+                                    </Button>)
+                                }
+                                
+                                
                             </div>
                         </div>
 
