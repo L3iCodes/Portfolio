@@ -31,10 +31,10 @@ const sampleData = {
     }
   ],
   "tags": ["Javascript", "React", "TailwinCSS", "NodeJs", "ExpressJS", "MongoDB"],
-  "link": "https://github.com/L3iCodes/Vysta",
-  "demo": "someLink.com",
+  "github_url": "https://github.com/L3iCodes/Vysta",
+  "demo_url": "someLink.com",
   "featured": false,
-  "img": "vystaImg"
+  "img_url": "vystaImg"
 }
 
 

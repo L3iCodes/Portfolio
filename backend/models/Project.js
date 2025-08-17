@@ -6,6 +6,12 @@ const FeatureSchema = new mongoose.Schema({
     img: String,
 });
 
+const ImageSchema = new mongoose.Schema({
+    public_id: String,
+    name: String,
+    url: String,
+})
+
 const ProjectSchema = new mongoose.Schema({
     name: String,
     subtitle: String,
@@ -13,9 +19,9 @@ const ProjectSchema = new mongoose.Schema({
     tags: [],
     features: [FeatureSchema],
     featured: Boolean,
-    link: String,
-    demo: String,
-    img: String,
+    github_url: String,
+    demo_url: String,
+    image: ImageSchema,
 });
 
 export default mongoose.model('projects', ProjectSchema)

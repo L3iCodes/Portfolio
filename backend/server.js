@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import projectRoutes from './routes/project.routes.js'
+import imageRoutes from './routes/image.routes.js'
 
 dotenv.config();
 
@@ -31,3 +32,4 @@ mongoose.connect(DB_URL)
     .catch(error => console.log(`Can't connect to Database. Error: ${error}`));
 
 app.use("/api/project", projectRoutes);
+app.use("/api/image", imageRoutes);
