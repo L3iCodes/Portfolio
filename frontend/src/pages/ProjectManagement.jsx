@@ -1,0 +1,51 @@
+import Header from "../components/Header"
+import { useProjectData } from "../hooks/useProjectData"
+import ProjectList from "../components/ProjectList";
+import { usePreview } from "../hooks/usePreview";
+import Button from "../components/Button";
+import Modal from "../components/Modal";
+import EditProjectForm from "../forms/editProject.form";
+
+export default function ProjectManagement(){
+    const { project_list, featured_list } = useProjectData();
+    const { openPreview, project:currentProject, onPreview, closePreview  } = usePreview();
+
+    const { data:project, isLoading:isProjectLoading  } = project_list;
+    const { data:featured, isLoading:isFeaturedLoading  } = featured_list;
+
+    return(
+        <div className="flex flex-col gap-15 w-full h-full relative">
+            {openPreview && (
+                <Modal onClose={closePreview}> <EditProjectForm project={currentProject}/> </Modal>
+            )}
+            
+            <Header 
+                main={<span className="font-bold">Project Management</span>}
+                subtitle={'Organize, manage, and customize the projects that will be showcased in your portfolio, making it easier to highlight your most meaningful work and present your skills in the best possible way.'}
+                showContact={false}
+                includeImg={false}
+            />
+
+            <div className="flex flex-col p-2 border-1 border-accent">
+                <h2 className='font-medium mb-5'>Featured Projects</h2>
+                {!isFeaturedLoading && featured.length > 0 
+                    ? <ProjectList key={'featuredProject_list'} list={featured} onPreview={onPreview}/>
+                    : <p className="text-subtext mt-[-20px]">No featured project yet</p>
+                
+                }
+            </div>
+
+             <div className="flex flex-col p-2 border-1 border-accent h-fit">
+                <div className="flex justify-between">
+                    <h2 className='font-medium mb-5'>Projects</h2>
+                    <Button className={'h-full border-1 border-accent'}>Add Project</Button>
+                </div>
+                
+                {!isProjectLoading && project.length > 0 
+                    ? <ProjectList key={'project_list'} list={project} onPreview={onPreview}/>
+                    : <p className="text-subtext mt-[-20px]">No project yet</p>
+                }
+            </div>
+        </div>
+    )
+}
