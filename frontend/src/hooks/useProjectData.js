@@ -1,5 +1,5 @@
 import  { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { retrieveAllProject, retrieveFeaturedProject, addProject, editProject } from '../api/projects'
+import { retrieveAllProject, retrieveFeaturedProject, addProject, editProject, deleteProject } from '../api/projects'
 
 export function useProjectData() {
 
@@ -33,5 +33,14 @@ export function useProjectData() {
         },
     })
 
-    return { project_list, featured_list, add_project, edit_project }
+    const delete_project = useMutation({
+        mutationFn: deleteProject,
+        onSuccess: () => {
+             ['projects', 'featured_projects'].forEach(key =>
+                queryClient.invalidateQueries(key)
+            );
+        },
+    })
+
+    return { project_list, featured_list, add_project, edit_project, delete_project}
 }

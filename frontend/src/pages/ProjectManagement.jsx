@@ -23,7 +23,7 @@ export default function ProjectManagement(){
         <div className="flex flex-col gap-15 w-full h-full relative">
 
             {openPreview && (
-                <Modal onClose={closePreview}> <EditProjectForm project={currentProject}/> </Modal>
+                <Modal onClose={closePreview}> <EditProjectForm project={currentProject} onClose={closePreview}/> </Modal>
             )}
 
             {openAdd && (
@@ -37,7 +37,7 @@ export default function ProjectManagement(){
                 includeImg={false}
             />
 
-            <div className="flex flex-col p-2 border-1 border-accent">
+            <div className="flex flex-col p-2 border-1 border-accent rounded-[10px]">
                 <h2 className='font-medium mb-5'>Featured Projects</h2>
                 {!isFeaturedLoading && featured.length > 0 
                     ? <ProjectList key={'featuredProject_list'} list={featured} onPreview={onPreview}/>
@@ -46,7 +46,7 @@ export default function ProjectManagement(){
                 }
             </div>
 
-             <div className="flex flex-col p-2 border-1 border-accent h-fit">
+             <div className="flex flex-col p-2 border-1 border-accent h-fit rounded-[10px]">
                 <div className="flex justify-between">
                     <h2 className='font-medium mb-5'>Projects</h2>
                     <Button onClick={() => setOpenAdd(true)} className={'h-full border-1 border-accent'}>Add Project</Button>

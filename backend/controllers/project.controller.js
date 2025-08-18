@@ -50,3 +50,21 @@ export const editProject = async (req, res) => {
         return res.status(401).json({ message: "Failed to edit project" });
     };
 };
+
+export const deleteProject = async (req, res) => {
+  const id = req.params.id;
+
+  try{
+      const deletedProject = await Project.findByIdAndDelete(id);
+
+      if (!deletedProject) {
+        return res.status(404).json({ message: "Project not found" });
+      }
+
+      return res.status(200).json({ message: "Project deleted successfully" });
+
+  }catch(error){
+      return res.status(401).json({ message: "Failed to delete project" });
+  }
+
+}

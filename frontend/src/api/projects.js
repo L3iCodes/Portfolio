@@ -32,6 +32,22 @@ export async function retrieveFeaturedProject() {
     }
 }
 
+export async function deleteProject(id){
+    console.log('DELETING ID: ' + id)
+    try{
+        const res = await fetch(`${BACKEND_URL}/api/project/delete-project/${id}`, {
+            method: 'DELETE'
+        })
+
+        if(!res.ok){
+            throw new Error("Failed to delete project");
+        }
+
+    }catch(error){
+        throw error;
+    }
+}
+
 export async function addProject(newProject){
     try{
         const formData = new FormData();

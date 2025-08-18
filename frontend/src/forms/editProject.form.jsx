@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import { useProjectData } from "../hooks/useProjectData";
 import { NotificatioNContext } from "../context/NotificationContext";
 
-export default function EditProjectForm({ project }) {
+export default function EditProjectForm({ project, onClose }) {
     const [currentProject, setCurrentProject] = useState({ ...project, image:null});
     const [tagsInput, setTagsInput] = useState(currentProject.tags.join(" "));
     const [features, setFeatures] = useState(
@@ -11,9 +11,11 @@ export default function EditProjectForm({ project }) {
             ? currentProject.features.map(f => `${f.name}-${f.description}`).join("\n")
             : ""
     );
-    const { edit_project } = useProjectData();
-    const { mutate, isPending } = edit_project;
+    const { edit_project, delete_project } = useProjectData();
+    const { mutate: edit, isPending } = edit_project;
+    const { mutate: remove } = delete_project;
     const { handleNotification } = useContext(NotificatioNContext);
+    const [openDelete, setOpenDelete] = useState(false)
 
     const editProject = (e) => {
         e.preventDefault();
@@ -24,17 +26,31 @@ export default function EditProjectForm({ project }) {
             editProject = { ...editProject, image:project.image};
         };
 
-        mutate(editProject, {
+        edit(editProject, {
             onSuccess: () => {
-                handleNotification('Project Succesfully Editted', false)
+                handleNotification('Project Succesfully Editted', false);
             },
 
             onError: (error) => {
-                handleNotification(error.message, true)
+                handleNotification(error.message, true);
+            }
+        });
+    }
+
+    const removeProject = (e) => {
+        e.preventDefault();
+        remove(currentProject._id, {
+            onSuccess:() => {
+                handleNotification('Project Succesfully Deleted', false);
+                setOpenDelete(false);
+                onClose()
+            },
+
+            onError: (error) => {
+                handleNotification(error.message, true);
+                setOpenDelete(false);
             }
         })
-
-        
     }
 
     return (
@@ -167,7 +183,12 @@ export default function EditProjectForm({ project }) {
                             />
                         </div>
                     </div>
-                    <div className="w-full sm:w-fit mt-auto">
+                    <div className="flex w-full gap-2 sm:w-fit mt-auto">
+                        {openDelete 
+                            ? <Button onClick={removeProject} className={'w-full px-8 border-accent border-1 !bg-red-600 hover:!bg-red-500 active:!bg-red-600'}>Delete Now</Button>
+                            : <Button onClick={() => setOpenDelete(true)} className={'w-full px-8 border-accent border-1 !bg-red-800 hover:!bg-red-700 active:!bg-red-800'}>Delete</Button>
+                        }
+                        
                         {isPending 
                             ? <Button type={'submit'} disabled={true} className="px-10 h-fit w-full  border-1 border-accent !bg-primary ">Editting...</Button>
                             : <Button type={'submit'} disabled={false} className="px-10 h-fit w-full border-1 border-accent">Edit</Button>
