@@ -1,14 +1,39 @@
 import { useState } from "react"
 import Button from "../components/Button";
+import { useProjectData } from "../hooks/useProjectData";
 
 export default function EditProjectForm({ project }) {
-    const [currentProject, setCurrentProject] = useState(project);
+    const [currentProject, setCurrentProject] = useState({ ...project, image:null});
     const [tagsInput, setTagsInput] = useState(currentProject.tags.join(" "));
     const [features, setFeatures] = useState(
         currentProject.features
             ? currentProject.features.map(f => `${f.name}-${f.description}`).join("\n")
             : ""
     );
+    const { edit_project } = useProjectData();
+    const { mutate, isPending } = edit_project;
+
+    const editProject = (e) => {
+        e.preventDefault();
+        let editProject = currentProject;
+        
+
+        if(!currentProject.image){
+            editProject = { ...editProject, image:project.image};
+        };
+
+        mutate(editProject, {
+            onSuccess: () => {
+                alert('Project Editted');
+            },
+
+            onError: (error) => {
+                console.log(error.message)
+            }
+        })
+
+        
+    }
 
     return (
         <div className="flex flex-col gap-10">
@@ -19,7 +44,7 @@ export default function EditProjectForm({ project }) {
             </div>
 
             {/* Form */}
-            <form className="flex flex-col gap-6 text-[14px] text-text">
+            <form onSubmit={editProject} className="flex flex-col gap-6 text-[14px] text-text">
                 
                 {/* Name + Subtitle */}
                 <div className="flex gap-5">
@@ -111,14 +136,41 @@ export default function EditProjectForm({ project }) {
                     }}
                 />
 
-                {/* Image + Button */}
                 <div className="flex gap-5 w-full justify-between">
-                    <div className="flex flex-col gap-1">
-                        <label htmlFor="img" className="text-text">Upload Image</label>
-                        <input id="img" type="file" className="!w-fit text-subtext" />
+                    <div className="flex gap-2 ">
+                        <div className="flex flex-col gap-1">
+                            <label htmlFor="img" className="text-text">Change Image</label>
+                            <input
+                                id="img"
+                                type="file"
+                                // required={true}
+                                accept="image/png, image/jpeg"
+                                className="!w-fit text-subtext"
+                                onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    setCurrentProject({ ...currentProject, image: file });
+                                    
+                                }}
+                            />
+                        </div>
+                        
+                        <div className="flex gap-2 h-fit p-1 bg-secondary border-1 border-accent rounded-[5px] mt-auto">
+                            <label htmlFor="isFeatured" className="text-text text-[12px]">Featured?</label>
+                            <input 
+                                id='isFeatured'
+                                type="checkbox"
+                                checked={currentProject.featured}
+                                onChange={(e) => setCurrentProject( { ...currentProject, featured:e.target.checked})}
+                            />
+                        </div>
+                        
                     </div>
                     
-                    <Button className="px-10 h-full mt-auto border-1 border-accent">Edit</Button>
+                    {isPending 
+                        ? <Button type={'submit'} disabled={true} className="px-10 h-full mt-auto border-1 border-accent !bg-primary ">Editting...</Button>
+                        : <Button type={'submit'} disabled={false} className="px-10 h-full mt-auto border-1 border-accent">Edit</Button>
+                    }
+                
                 </div>
             </form>
         </div>

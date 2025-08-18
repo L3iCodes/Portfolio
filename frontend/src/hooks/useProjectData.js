@@ -1,5 +1,5 @@
 import  { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { retrieveAllProject, retrieveFeaturedProject, addProject } from '../api/projects'
+import { retrieveAllProject, retrieveFeaturedProject, addProject, editProject } from '../api/projects'
 
 export function useProjectData() {
 
@@ -18,12 +18,26 @@ export function useProjectData() {
     const add_project = useMutation({
         mutationFn: addProject,
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["projects"] });
+            ['projects', 'featured_projects'].forEach(key =>
+                queryClient.invalidateQueries(key)
+            );
         },
         onError: () => {
-            alert("Something went wrong!");
+            alert("Failed to add project");
         }
     })
 
-    return { project_list, featured_list, add_project }
+    const edit_project = useMutation({
+        mutationFn: editProject,
+        onSuccess: () => {
+             ['projects', 'featured_projects'].forEach(key =>
+                queryClient.invalidateQueries(key)
+            );
+        },
+        onError: () => {
+            alert("Failed to update project");
+        }
+    })
+
+    return { project_list, featured_list, add_project, edit_project }
 }

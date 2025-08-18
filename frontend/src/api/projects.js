@@ -76,3 +76,38 @@ export async function addProject(newProject){
         throw new Error('Failed to add new project. Error: ' + error.message)
     }
 }
+
+export async function editProject(newProject) {
+    console.log('Editing Project :')
+    console.log(newProject)
+
+    if (newProject.image instanceof File) {
+        const formData = new FormData();
+        formData.append("file", newProject.image);
+        
+        // Upload the image
+        const image = await fetch(`${BACKEND_URL}/api/image/upload-image`, {
+            method: 'POST',
+            body:formData
+        });
+
+        if(!image.ok){
+            console.log('Failed to upload image', + image.status)
+            throw new Error("Image upload failed");
+        }
+
+        const { imgInfo } = await image.json()
+        newProject.image = imgInfo;
+    }
+
+    // Upload editted project in db
+    const response = await fetch(`${BACKEND_URL}/api/project/edit-project/${newProject._id}`, {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(newProject)
+    })
+
+    if(!response.ok){
+        throw new Error("Failed to edit project info");
+    }
+}
