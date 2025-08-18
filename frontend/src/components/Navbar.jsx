@@ -59,18 +59,20 @@ function desktopNavigation(currentPath, navigate){
     return(
         <>
             <div className='hidden items-center gap-20 mx-4 w-full md:flex'>
-                <h3 className='text-subtext font-bold tracking-wide'>Wilhelm</h3>
+                <h3 
+                    onClick={() => navigate('/')}
+                    className='text-subtext font-bold tracking-wide active:text-text cursor-pointer'>Wilhelm</h3>
 
                 <div className='flex items-center ml-auto text-accent font-bold gap-8 '>
                     <h4 
                         onClick={() => navigate('/')}
-                        className={`${currentPath === '/' && ('text-text')} cursor-pointer hover:text-subtext`}>Home</h4>
+                        className={`${currentPath === '/' && ('text-text')} cursor-pointer hover:text-subtext active:text-accent`}>Home</h4>
                     <h4 
                         onClick={() => navigate('/projects')}
-                        className={`${currentPath === '/projects' && ('text-text')} cursor-pointer hover:text-subtext`}>Projects</h4>
+                        className={`${currentPath === '/projects' && ('text-text')} cursor-pointer hover:text-subtext active:text-accent`}>Projects</h4>
                     <h4 
                         onClick={() => navigate('/about')}
-                        className={`${currentPath === '/about' && ('text-text')} cursor-pointer hover:text-subtext`}>About</h4>
+                        className={`${currentPath === '/about' && ('text-text')} cursor-pointer hover:text-subtext active:text-accent`}>About</h4>
                 </div>
             </div>
             
