@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Button from "../components/Button";
 import { useProjectData } from "../hooks/useProjectData";
+import { NotificatioNContext } from "../context/NotificationContext";
 
 export default function EditProjectForm({ project }) {
     const [currentProject, setCurrentProject] = useState({ ...project, image:null});
@@ -12,6 +13,7 @@ export default function EditProjectForm({ project }) {
     );
     const { edit_project } = useProjectData();
     const { mutate, isPending } = edit_project;
+    const { handleNotification } = useContext(NotificatioNContext);
 
     const editProject = (e) => {
         e.preventDefault();
@@ -24,11 +26,11 @@ export default function EditProjectForm({ project }) {
 
         mutate(editProject, {
             onSuccess: () => {
-                alert('Project Editted');
+                handleNotification('Project Succesfully Editted', false)
             },
 
             onError: (error) => {
-                console.log(error.message)
+                handleNotification(error.message, true)
             }
         })
 
@@ -136,8 +138,9 @@ export default function EditProjectForm({ project }) {
                     }}
                 />
 
-                <div className="flex gap-5 w-full justify-between">
-                    <div className="flex gap-2 ">
+                <div className="flex gap-5 w-full flex-wrap justify-between">
+                    
+                    <div className="flex gap-2 w-fit">
                         <div className="flex flex-col gap-1">
                             <label htmlFor="img" className="text-text">Change Image</label>
                             <input
@@ -163,13 +166,14 @@ export default function EditProjectForm({ project }) {
                                 onChange={(e) => setCurrentProject( { ...currentProject, featured:e.target.checked})}
                             />
                         </div>
-                        
+                    </div>
+                    <div className="w-full sm:w-fit mt-auto">
+                        {isPending 
+                            ? <Button type={'submit'} disabled={true} className="px-10 h-fit w-full  border-1 border-accent !bg-primary ">Editting...</Button>
+                            : <Button type={'submit'} disabled={false} className="px-10 h-fit w-full border-1 border-accent">Edit</Button>
+                        }
                     </div>
                     
-                    {isPending 
-                        ? <Button type={'submit'} disabled={true} className="px-10 h-full mt-auto border-1 border-accent !bg-primary ">Editting...</Button>
-                        : <Button type={'submit'} disabled={false} className="px-10 h-full mt-auto border-1 border-accent">Edit</Button>
-                    }
                 
                 </div>
             </form>

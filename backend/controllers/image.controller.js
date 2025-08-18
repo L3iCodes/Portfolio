@@ -11,10 +11,8 @@ cloudinary.config({
     })
 
 export const uploadImg = async (req, res) => {
-    console.log('Uploading Image')
-
     try{
-        console.log("File received:", req.file);
+        // console.log("File received:", req.file);
 
         if(!req.file){
             return res.status(400).json({message: 'No file uploaded'});
@@ -28,9 +26,6 @@ export const uploadImg = async (req, res) => {
             }
         )
 
-        console.log(`Upload succesfully`)
-        console.log(upload)
-
         fs.unlinkSync(req.file.path) // Delete temp file
 
         return res.status(201).json({
@@ -43,8 +38,6 @@ export const uploadImg = async (req, res) => {
         });
 
     }catch(error){
-        console.log(`Failed to upload image. Error`);
-        console.log(error)
         return res.status(401).json({message: 'Failed to upload image'});
     }
 }

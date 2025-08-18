@@ -22,9 +22,6 @@ export function useProjectData() {
                 queryClient.invalidateQueries(key)
             );
         },
-        onError: () => {
-            alert("Failed to add project");
-        }
     })
 
     const edit_project = useMutation({
@@ -34,9 +31,6 @@ export function useProjectData() {
                 queryClient.invalidateQueries(key)
             );
         },
-        onError: () => {
-            alert("Failed to update project");
-        }
     })
 
     return { project_list, featured_list, add_project, edit_project }

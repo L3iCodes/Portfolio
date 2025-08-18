@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../components/Button";
 import { useProjectData } from "../hooks/useProjectData";
+import { NotificatioNContext } from "../context/NotificationContext";
 
 const emptyProject = {
   name: "",
@@ -20,15 +21,20 @@ export default function AddProjectForm() {
     const [features, setFeatures] = useState("");
     const { add_project } = useProjectData();
     const { mutate, isPending } = add_project;
+    const { handleNotification } = useContext(NotificatioNContext);
 
     const addProject = (e) => {
         e.preventDefault();
         console.log(newProject)
         mutate(newProject, {
             onSuccess: () => {
-            setNewProject(emptyProject);
-            setTagsInput([]);
-            setFeatures([]);
+                handleNotification('Project Succesfully Added', false)
+                setNewProject(emptyProject);
+                setTagsInput([]);
+                setFeatures([]);
+            },
+            onError: (error) => {
+                handleNotification(error.message, true)
             }
         });
     };
@@ -141,9 +147,9 @@ export default function AddProjectForm() {
                 />
 
                 {/* Image + Button */}
-                <div className="flex gap-5 w-full justify-between">
+                <div className="flex gap-5 w-full flex-wrap justify-between">
 
-                    <div className="flex gap-2 ">
+                    <div className="flex gap-2 w-fit">
                         <div className="flex flex-col gap-1">
                             <label htmlFor="img" className="text-text">Upload Image</label>
                             <input
@@ -171,11 +177,13 @@ export default function AddProjectForm() {
                         
                     </div>
                     
-                
-                    {isPending 
-                        ? <Button type={'submit'} disabled={true} className="px-10 h-full mt-auto border-1 border-accent !bg-primary ">Adding...</Button>
-                        : <Button type={'submit'} disabled={false} className="px-10 h-full mt-auto border-1 border-accent">Add</Button>
-                    }
+                    <div className="w-full sm:w-fit mt-auto">
+                        {isPending 
+                            ? <Button type={'submit'} disabled={true} className="px-10 h-fit w-full border-1 border-accent !bg-primary ">Adding...</Button>
+                            : <Button type={'submit'} disabled={false} className="px-10 h-fit w-full border-1 border-accent">Add</Button>
+                        }
+                    </div>
+                    
                 
                 </div>
             </form>

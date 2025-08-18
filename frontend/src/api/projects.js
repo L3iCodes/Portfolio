@@ -1,8 +1,6 @@
 const BACKEND_URL = 'http://localhost:5000'
 
 export async function retrieveAllProject() {
-    console.log('Retrieving all board')
-
     try {
         const res = await fetch(`${BACKEND_URL}/api/project/all-project`)
 
@@ -19,8 +17,6 @@ export async function retrieveAllProject() {
 }
 
 export async function retrieveFeaturedProject() {
-    console.log('Retrieving Featured Projects')
-
     try{
         const res = await fetch(`${BACKEND_URL}/api/project/featured-project`)
 
@@ -37,8 +33,6 @@ export async function retrieveFeaturedProject() {
 }
 
 export async function addProject(newProject){
-    console.log('Starting upload process');
-
     try{
         const formData = new FormData();
         formData.append("file", newProject.image);
@@ -50,8 +44,7 @@ export async function addProject(newProject){
         });
 
         if(!image.ok){
-            console.log('Failed to upload image', + image.status)
-            throw new Error(errorMsg || "Image upload failed");
+            throw new Error("Image upload failed. Max size: 10MB.");
         }
 
         // Update image property in the object
@@ -66,48 +59,46 @@ export async function addProject(newProject){
         })
 
         if(!response.ok){
-            throw new Error(errorMsg || "Failed to upload project in the database");
+            throw new Error("Failed to upload project in the database");
         }
-
-        console.log(response.json())
-
         
     }catch(error){
-        throw new Error('Failed to add new project. Error: ' + error.message)
+        throw error;
     }
 }
 
 export async function editProject(newProject) {
-    console.log('Editing Project :')
-    console.log(newProject)
+    try{
+        if (newProject.image instanceof File) {
+            const formData = new FormData();
+            formData.append("file", newProject.image);
+            
+            // Upload the image
+            const image = await fetch(`${BACKEND_URL}/api/image/upload-image`, {
+                method: 'POST',
+                body:formData
+            });
 
-    if (newProject.image instanceof File) {
-        const formData = new FormData();
-        formData.append("file", newProject.image);
-        
-        // Upload the image
-        const image = await fetch(`${BACKEND_URL}/api/image/upload-image`, {
-            method: 'POST',
-            body:formData
-        });
+            if(!image.ok){
+                throw new Error("Image upload failed. Max size: 10MB.");
+            }
 
-        if(!image.ok){
-            console.log('Failed to upload image', + image.status)
-            throw new Error("Image upload failed");
+            const { imgInfo } = await image.json()
+            newProject.image = imgInfo;
         }
 
-        const { imgInfo } = await image.json()
-        newProject.image = imgInfo;
-    }
+        // Upload editted project in db
+        const response = await fetch(`${BACKEND_URL}/api/project/edit-project/${newProject._id}`, {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newProject)
+        })
 
-    // Upload editted project in db
-    const response = await fetch(`${BACKEND_URL}/api/project/edit-project/${newProject._id}`, {
-        method: 'POST',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(newProject)
-    })
-
-    if(!response.ok){
-        throw new Error("Failed to edit project info");
+        if(!response.ok){
+            throw new Error("Failed to edit project information");
+        }
+    }catch(error){
+        throw error;
     }
+    
 }

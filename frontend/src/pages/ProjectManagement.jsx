@@ -7,8 +7,8 @@ import { usePreview } from "../hooks/usePreview";
 import Header from "../components/Header"
 import Button from "../components/Button";
 import Modal from "../components/Modal";
+import Notification from "../components/Notification";
 import EditProjectForm from "../forms/editProject.form";
-
 import AddProjectForm from "../forms/addProject.form";
 
 export default function ProjectManagement(){
@@ -21,6 +21,7 @@ export default function ProjectManagement(){
 
     return(
         <div className="flex flex-col gap-15 w-full h-full relative">
+
             {openPreview && (
                 <Modal onClose={closePreview}> <EditProjectForm project={currentProject}/> </Modal>
             )}
