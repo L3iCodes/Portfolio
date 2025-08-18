@@ -1,14 +1,17 @@
 
 import { Icon } from '@iconify/react'
 import Button from '../components/Button';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import profile from "../profile.png"
 import profile2 from "../profile2.png"
+import { NotificatioNContext } from "../context/NotificationContext";
+
 
 export default function Header({ main, subtitle, showContact = true, includeImg = false }){
 
     const [emailClicked, setEmailClicked] = useState(false)
     const [currentProfile, setCurrentProfile] = useState(profile)
+    const { handleNotification } = useContext(NotificatioNContext)
 
     return(
         <div className='flex flex-col gap-2'>
@@ -52,38 +55,41 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
                             <Icon icon="mingcute:github-fill" width="24" height="24" />
                     </Button>
                     
-                    <Button 
-                        onClick={() => {
-                            const email = 'janwilhelmtan.sy@gmail.com'
-                            navigator.clipboard.writeText(email)
-                            // alert('Email copied! : ' + email)
-                            setEmailClicked(true)
-                            
-                            setTimeout(() => {
-                                setEmailClicked(false)
-                            }, 3000)
-                            
-                        }}
-                        className={'flex gap-2 px-4'}
-                        >
-                            {emailClicked 
-                                ? (
-                                    <>
-                                        <Icon className='text-subtext' icon="si:copy-line" width="20" height="20" /> 
-                                        <h4 className='text-subtext'>Copied</h4>
-                                    </>
-                                ) 
-                                : (
-                                    <h3>Email</h3>
-                                )
-                            }
-                    </Button>
+                    <div title='janwilhelmtan.sy@gmail.com'> 
+                        <Button 
+                            onClick={() => {
+                                const email = 'janwilhelmtan.sy@gmail.com'
+                                navigator.clipboard.writeText(email)
+                                handleNotification('Email copied', false)
+                                setEmailClicked(true)
+                                
+                                setTimeout(() => {
+                                    setEmailClicked(false)
+                                }, 3000)
+                                
+                            }}
+                            className={'flex gap-2 px-4'}
+                            >
+                                {emailClicked 
+                                    ? (
+                                        <>
+                                            <Icon className='text-subtext' icon="si:copy-line" width="20" height="20" /> 
+                                            <h4 className='text-subtext'>Copied</h4>
+                                        </>
+                                    ) 
+                                    : (
+                                        <h3>Email</h3>
+                                    )
+                                }
+                        </Button>
+                    </div>
+                    
 
                     <h3
                         onClick={() => {
                             const contact = '0961 365 5723'
                             navigator.clipboard.writeText(contact)
-                            // alert('Conact # copied! : ' + contact)
+                            handleNotification('Contact number copied', false)
                         }} 
                         className='text-subtext hover:text-text active:text-subtext cursor-pointer ml-2'
                         >

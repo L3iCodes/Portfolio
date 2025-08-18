@@ -126,13 +126,15 @@ export default function AboutPage(){
                     <InfoCard
                         title={'Contact'}
                         icon={'mdi:contact-outline'}
-                        className={'h-full'}
+                        className={'h-full relative overflow-hidden'}
                         >
+                            <div className="w-full h-full absolute left-0 top-0 bg-secondary/1 backdrop-blur-[1px]" />
                             <h5 className="text-subtext mt-[-10px]">If you are interested in what I could offer. Please contact me</h5>
 
                             <form className="flex flex-col w-full mt-5 gap-3 h-full">
+                                
                                 <div className="flex w-full gap-3">
-                                    <div className="flex flex-col gap-1">
+                                    <div className="flex flex-col w-full gap-1">
                                         <h4 className="text-text/90 !text-[12px]">Name</h4>
                                         <input 
                                             type="text" 
@@ -141,7 +143,7 @@ export default function AboutPage(){
                                         />
                                     </div>
 
-                                    <div className="flex flex-col gap-1">
+                                    <div className="flex flex-col w-full gap-1">
                                         <h4 className="text-text/90 !text-[12px]">Name</h4>
                                         <input 
                                             type="text" 

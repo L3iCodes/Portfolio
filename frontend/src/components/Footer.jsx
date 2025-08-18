@@ -11,15 +11,18 @@ export default function Footer(){
                 <h3 className='text-subtext font-bold tracking-wide'>Wilhelm</h3>
 
                 <div className={`flex gap-2 items-center ml-auto`}>
-                    <Button onClick={() => window.open(
-                        "https://www.linkedin.com/in/jan-wilhelm-sy-8665b9379", 
-                        "_blank", 
-                        "noopener,noreferrer"
+                    <Button 
+                        className={'text-subtext hover:text-text'}
+                        onClick={() => window.open(
+                            "https://www.linkedin.com/in/jan-wilhelm-sy-8665b9379", 
+                            "_blank", 
+                            "noopener,noreferrer"
                         )}>
-                            <Icon icon="ri:linkedin-fill" width="24" height="24" />
+                            <Icon icon="ri:linkedin-fill" width="24" height="24"/>
                     </Button>
 
                     <Button
+                        className={'text-subtext hover:text-text'}
                         onClick={() => window.open(
                             "https://github.com/L3iCodes", 
                             "_blank", 
