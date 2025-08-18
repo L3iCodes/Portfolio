@@ -1,6 +1,14 @@
-import Notification from "./Notification"
+import { useEffect } from "react";
 
 export default function Modal( { onClose, children } ){
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
+
     return(
         <div 
             onClick={onClose}

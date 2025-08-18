@@ -1,5 +1,4 @@
 import Tags from "./Tags"
-import img from "../VystaImg.png"
 
 export default function Card({ id, index, name, tags, img_url, onClick }){
     return(

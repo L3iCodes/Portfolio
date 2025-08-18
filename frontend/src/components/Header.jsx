@@ -2,8 +2,8 @@
 import { Icon } from '@iconify/react'
 import Button from '../components/Button';
 import { useState, useContext } from 'react';
-import profile from "../profile.png"
-import profile2 from "../profile2.png"
+import profile from "../assets/profile.png"
+import profile2 from "../assets/profile2.png"
 import { NotificatioNContext } from "../context/NotificationContext";
 import Modal from "../components/Modal";
 import Resume from "../assets/My_Resume.pdf"
@@ -70,8 +70,9 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
 
                     <Button
                         className={'px-4'}
-                        onClick={() => setOpenResume(true)
-                        }>
+                        onClick={(e) => 
+                            {setOpenResume(true)
+                        }}>
                             Resume
                     </Button>
                     

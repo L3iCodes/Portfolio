@@ -1,5 +1,4 @@
 import Tags from "./Tags"
-import img from "../VystaImg.png"
 import Button from "./Button"
 import { Icon } from '@iconify/react'
 
