@@ -7,7 +7,6 @@ import { usePreview } from "../hooks/usePreview";
 import Header from "../components/Header"
 import Button from "../components/Button";
 import Modal from "../components/Modal";
-import Notification from "../components/Notification";
 import EditProjectForm from "../forms/editProject.form";
 import AddProjectForm from "../forms/addProject.form";
 

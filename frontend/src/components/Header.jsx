@@ -5,6 +5,8 @@ import { useState, useContext } from 'react';
 import profile from "../profile.png"
 import profile2 from "../profile2.png"
 import { NotificatioNContext } from "../context/NotificationContext";
+import Modal from "../components/Modal";
+import Resume from "../assets/My_Resume.pdf"
 
 
 export default function Header({ main, subtitle, showContact = true, includeImg = false }){
@@ -12,9 +14,21 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
     const [emailClicked, setEmailClicked] = useState(false)
     const [currentProfile, setCurrentProfile] = useState(profile)
     const { handleNotification } = useContext(NotificatioNContext)
+    const [ openResume, setOpenResume ] = useState(false);
 
     return(
         <div className='flex flex-col gap-2'>
+            
+            {openResume && (
+                <Modal onClose={() => setOpenResume(false)}>
+                    <iframe 
+                        src={Resume} 
+                        className='h-[1000px] border-2 border-accent rounded-[10px]' 
+                    />
+                </Modal>
+            )}
+            
+
             <div className='flex gap-2 items-end flex-col md:flex-row'>
                 <div className='flex flex-col'>
                     <h1 className='mt-10'>{main}</h1>
@@ -34,9 +48,8 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
                 
             </div>
             
-
             {showContact && (
-                <div className={`flex mt-2 gap-2 items-center
+                <div className={`flex mt-2 gap-2 items-center flex-wrap
                             md:gap-3`}>
                     <Button onClick={() => window.open(
                         "https://www.linkedin.com/in/jan-wilhelm-sy-8665b9379", 
@@ -53,6 +66,13 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
                             "noopener,noreferrer"
                         )}>
                             <Icon icon="mingcute:github-fill" width="24" height="24" />
+                    </Button>
+
+                    <Button
+                        className={'px-4'}
+                        onClick={() => setOpenResume(true)
+                        }>
+                            Resume
                     </Button>
                     
                     <div title='janwilhelmtan.sy@gmail.com'> 
