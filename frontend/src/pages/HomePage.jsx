@@ -8,8 +8,8 @@ import { usePreview } from '../hooks/usePreview';
 import { useState } from 'react';
 
 export default function HomePage(){
-    const { project_list } = useProjectData()
-    const { data, isLoading, error } = project_list;
+    const { featured_list } = useProjectData()
+    const { data, isLoading, error } = featured_list;
     const {openPreview, project, onPreview, closePreview} = usePreview()
 
     return(
