@@ -185,8 +185,8 @@ export default function EditProjectForm({ project, onClose }) {
                     </div>
                     <div className="flex w-full gap-2 sm:w-fit mt-auto">
                         {openDelete 
-                            ? <Button onClick={removeProject} className={'w-full px-8 border-accent border-1 !bg-red-600 hover:!bg-red-500 active:!bg-red-600'}>Delete Now</Button>
-                            : <Button onClick={() => setOpenDelete(true)} className={'w-full px-8 border-accent border-1 !bg-red-800 hover:!bg-red-700 active:!bg-red-800'}>Delete</Button>
+                            ? <Button onClick={removeProject} className={'w-full px-8 border-accent border-1 !bg-red-800 hover:!bg-red-700 active:!bg-red-800'}>Continue</Button>
+                            : <Button onClick={() => setOpenDelete(true)} className={'w-full px-8 border-accent border-1 !bg-primary hover:!bg-accent'}>Delete</Button>
                         }
                         
                         {isPending 

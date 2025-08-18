@@ -1,11 +1,11 @@
-import express, { json } from 'express'
+import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import projectRoutes from './routes/project.routes.js'
 import imageRoutes from './routes/image.routes.js'
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 // Setup app / server
 const app = express();

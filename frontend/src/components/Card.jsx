@@ -21,8 +21,8 @@ export default function Card({ id, index, name, tags, img_url, onClick }){
                     <div className="flex flex-col gap-2 w-full">
                         <h4 className="font-semibold truncate">{name}</h4>
                         <div className="flex w-full gap-1 overflow-y-auto">
-                            {tags.map((element) => (
-                                <Tags key={`id-${element}`} tag={element}/>
+                            {tags.map((element, index) => (
+                                <Tags key={`${id}-${element}-${index}`} tag={element}/>
                             ))}
                         </div>
                     </div>

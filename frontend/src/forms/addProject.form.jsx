@@ -25,7 +25,6 @@ export default function AddProjectForm() {
 
     const addProject = (e) => {
         e.preventDefault();
-        console.log(newProject)
         mutate(newProject, {
             onSuccess: () => {
                 handleNotification('Project Succesfully Added', false)

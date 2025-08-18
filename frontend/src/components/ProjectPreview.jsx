@@ -62,7 +62,7 @@ export default function ProjectPreview({ project, onClose }){
                                 {!project.demo_url || project.demo_url === 'N/A'
                                     ? (<Button
                                         disabled={true} 
-                                        className={'w-[50%] border-1 border-accent !bg-primary text-subtext !cursor-none'}
+                                        className={'w-[50%] border-1 border-accent !bg-primary text-subtext !cursor-default'}
                                         >
                                             <h4>Unavailable</h4>
                                     </Button>)
@@ -72,7 +72,7 @@ export default function ProjectPreview({ project, onClose }){
                                             "_blank", 
                                             "noopener,noreferrer"
                                         )}
-                                        className={'w-[50%] border-1 border-accent !cursor-none'}
+                                        className={'w-[50%] border-1 border-accent'}
                                         >
                                             <h4>Demo</h4>
                                     </Button>)

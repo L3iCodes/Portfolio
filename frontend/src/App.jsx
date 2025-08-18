@@ -8,10 +8,9 @@ import ProjectManagement from './pages/ProjectManagement'
 import Notification from './components/Notification'
 import { useContext } from 'react';
 import { NotificatioNContext } from './context/NotificationContext'
-
+export const MANAGE_URL = import.meta.env.VITE_MANAGE_URL;
 
 function App() {
-
   const { openNotification, notificationMessage, error } = useContext(NotificatioNContext)
 
   return (
@@ -24,7 +23,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/projects' element={<ProjectPage />} />
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/manage' element={<ProjectManagement />} />
+          <Route path={`/${MANAGE_URL}`} element={<ProjectManagement />} />
         </Routes>
         <Footer />
       </Router>
