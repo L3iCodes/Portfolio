@@ -23,7 +23,7 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
                 <Modal onClose={() => setOpenResume(false)}>
                     <iframe 
                         src={Resume} 
-                        className='h-[1000px] border-2 border-accent rounded-[10px]' 
+                        className='h-[1000px] border-2 border-accent rounded-[10px] bg-secondary' 
                     />
                 </Modal>
             )}
