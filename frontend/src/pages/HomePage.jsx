@@ -6,11 +6,13 @@ import ProjectPreview from '../components/ProjectPreview';
 import { useProjectData } from '../hooks/useProjectData';
 import { usePreview } from '../hooks/usePreview';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 export default function HomePage(){
     const { featured_list } = useProjectData()
     const { data, isLoading, error } = featured_list;
     const {openPreview, project, onPreview, closePreview} = usePreview()
+    const navigate = useNavigate()
 
     return(
         <>
@@ -20,7 +22,7 @@ export default function HomePage(){
             
             <div className="flex flex-col gap-25 w-full h-full">
                 <Header 
-                    main={<>Hey, I'm <span className="font-bold">Wilhelm</span></>}
+                    main={<>Hey, I'm <span onClick={() => navigate('/about')} className="font-bold cursor-pointer hover:text-orange-400 active:text-text">Wilhelm</span></>}
                     subtitle={'Fresh graduate and aspiring full-stack developer with skills in React, backend technologies, and AI. Experience includes deep learning and NLP projects developed during research and applied work.'}
                     showContact={true}
                 />

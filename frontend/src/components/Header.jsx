@@ -17,7 +17,7 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
     const [ openResume, setOpenResume ] = useState(false);
 
     return(
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col mt-10 gap-2'>
             
             {openResume && (
                 <Modal onClose={() => setOpenResume(false)}>
@@ -30,9 +30,20 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
             
 
             <div className='flex gap-2 items-end flex-col md:flex-row'>
-                <div className='flex flex-col'>
-                    <h1 className='mt-10'>{main}</h1>
+                <div className='flex gap-3 flex-col'>
+                    <div className='flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 h-fit w-fit'>
+                        <h1 className='order-2 sm:order-1'>{main}</h1>
+                        <p 
+                            className='flex items-center order-1 sm:order-2 gap-1 text-subtext bg-secondary w-fit px-2 border-1 border-accent rounded-[5px]
+                                        hover:bg-accent hover:text-text cursor-default'
+                            >
+                                <Icon icon="mynaui:location" width="20" height="20" />
+                                Oas, Albay, Philippines
+                        </p>
+                    </div>
+                    
                     <h3 className="text-subtext">{subtitle}</h3>
+                    
                 </div>
                 
                 {includeImg && (

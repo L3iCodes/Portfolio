@@ -21,7 +21,7 @@ export const NotificationProvider = ( { children } ) => {
             setOpenNotification(false);
             setNotificationMessage("");
             setError(false);
-        }, 3000);
+        }, 1500);
     }
 
     return (
