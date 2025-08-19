@@ -21,8 +21,8 @@ export default function ProjectPreview({ project, onClose }){
                         
                         {/* Project Tech Stack */}
                         <div className="flex flex-wrap w-full gap-1">
-                            {project.tags.map((element) => (
-                                <Tags tag={element}/>
+                            {project.tags.map((element, index) => (
+                                <Tags key={`${index}-preview-tags=${element}`} tag={element}/>
                             ))}
                         </div>
 
@@ -85,8 +85,8 @@ export default function ProjectPreview({ project, onClose }){
                         <div className="flex flex-col w-full">
                             <h3 className="font-semibold mb-4">Features</h3>
                             <ol className="list-decimal pl-6 text-[14px]">
-                                {project.features.map((element) => (
-                                    <li className="mb-2"><span className="font-medium">{element.name}</span> - <span className="text-subtext">{element.description}</span></li>
+                                {project.features.map((element, index) => (
+                                    <li key={`${index}-feature-${element.name}`}  className="mb-2"><span className="font-medium">{element.name}</span> - <span className="text-subtext">{element.description}</span></li>
                                 ))}
                             </ol>
                         </div>
