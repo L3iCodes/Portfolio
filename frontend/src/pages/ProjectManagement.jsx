@@ -9,6 +9,7 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import EditProjectForm from "../forms/editProject.form";
 import AddProjectForm from "../forms/addProject.form";
+import CardLoading from "../components/CardLoading";
 
 export default function ProjectManagement(){
     const { project_list, featured_list } = useProjectData();
@@ -38,10 +39,12 @@ export default function ProjectManagement(){
 
             <div className="flex flex-col p-2 border-1 border-accent rounded-[10px]">
                 <h2 className='font-medium mb-5'>Featured Projects</h2>
-                {!isFeaturedLoading && featured.length > 0 
-                    ? <ProjectList key={'featuredProject_list'} list={featured} onPreview={onPreview}/>
-                    : <p className="text-subtext mt-[-20px]">No featured project yet</p>
                 
+                {isFeaturedLoading 
+                    ? <CardLoading />
+                    : featured.length > 0 
+                        ? <ProjectList key={'project_list'} list={featured} onPreview={onPreview}/>
+                        : <p className="text-subtext mt-[-20px]">No project yet</p>
                 }
             </div>
 
@@ -51,9 +54,11 @@ export default function ProjectManagement(){
                     <Button onClick={() => setOpenAdd(true)} className={'h-full border-1 border-accent'}>Add Project</Button>
                 </div>
                 
-                {!isProjectLoading && project.length > 0 
-                    ? <ProjectList key={'project_list'} list={project} onPreview={onPreview}/>
-                    : <p className="text-subtext mt-[-20px]">No project yet</p>
+                {isProjectLoading 
+                    ? <CardLoading />
+                    : project.length > 0 
+                        ? <ProjectList key={'project_list'} list={project} onPreview={onPreview}/>
+                        : <p className="text-subtext mt-[-20px]">No project yet</p>
                 }
             </div>
         </div>

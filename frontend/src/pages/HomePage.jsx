@@ -5,8 +5,9 @@ import ProjectList from '../components/ProjectList';
 import ProjectPreview from '../components/ProjectPreview';
 import { useProjectData } from '../hooks/useProjectData';
 import { usePreview } from '../hooks/usePreview';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import CardLoading from '../components/CardLoading';
+
 
 export default function HomePage(){
     const { featured_list } = useProjectData()
@@ -36,17 +37,14 @@ export default function HomePage(){
                     <Experience />
                 </div>
 
-                {!isLoading && (
-                    <>
-                        <div className='flex flex-col'>
-                            <h2 className='font-medium mb-8'>Featured Projects</h2>
-                            <ProjectList list={data} onPreview={onPreview}/>
-                        </div>
-
-                        
-                    </>
-                )}
-                
+                <div className='flex flex-col'>
+                    <h2 className='font-medium mb-8'>Featured Projects</h2>
+                    {isLoading 
+                        ? <CardLoading />
+                        : <ProjectList key={'project_list'} list={data} onPreview={onPreview}/>
+                    }
+                </div>
+                    
             </div>
         </>
         

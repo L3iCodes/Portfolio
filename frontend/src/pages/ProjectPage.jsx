@@ -4,6 +4,7 @@ import { useProjectData } from "../hooks/useProjectData";
 import ProjectList from "../components/ProjectList";
 import ProjectPreview from "../components/ProjectPreview";
 import { usePreview } from "../hooks/usePreview";
+import CardLoading from "../components/CardLoading";
 
 
 export default function ProjectPage(){
@@ -24,9 +25,17 @@ export default function ProjectPage(){
                     showContact={false}
                 />
 
-                {!isLoading && (
-                    <ProjectList list={data} onPreview={onPreview}/>
-                )}
+                {/* {isLoading 
+                    ? <CardLoading />
+                    : data.length > 0 
+                        ? <ProjectList key={'project_list'} list={data} onPreview={onPreview}/>
+                        : <p className="text-subtext mt-[-20px]">No project yet</p>
+                } */}
+
+                {isLoading 
+                    ? <CardLoading />
+                    : <ProjectList key={'project_list'} list={data} onPreview={onPreview}/>
+                }
                 
             </div>
         </>

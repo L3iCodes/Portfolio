@@ -6,7 +6,7 @@ export default function Card({ id, index, name, tags, img_url, onClick }){
             onClick={() => onClick(index)}
             className="w-full  bg-secondary rounded-[5px] overflow-hidden border-accent border-1 shadow-sm shadow-black/10 cursor-pointer"
             >
-                <div className={`h-[70%] bg-accent overflow-hidden
+                <div className={`h-[70%] bg-accent overflow-hidden fade-in
                                 transition-transform 
                                 hover:scale-102`}>
                     <img 

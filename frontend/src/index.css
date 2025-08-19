@@ -55,3 +55,14 @@ body{
 input, textarea{
   @apply w-full text-[12px] px-2 py-1 border-1 border-accent bg-secondary rounded-[5px] text-subtext
 }
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
