@@ -20,7 +20,9 @@ export default function TechStack() {
     return(
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
             {skills.map((element, id) => (
-                <div className={`flex items-center gap-2 bg-secondary p-1 rounded-[10px]
+                <div 
+                    key={element.name} 
+                    className={`flex items-center gap-2 bg-secondary p-1 rounded-[10px]
                                 border border-transparent
                                 transition-transform duration-200 
                                 hover:scale-105 hover:border-accent`}>
