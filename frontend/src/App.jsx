@@ -8,6 +8,7 @@ import ProjectManagement from './pages/ProjectManagement'
 import Notification from './components/Notification'
 import { useContext } from 'react';
 import { NotificatioNContext } from './context/NotificationContext'
+import ScrollToTop from './components/ScrollToTop'
 export const MANAGE_URL = import.meta.env.VITE_MANAGE_URL;
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <div className='pageWrapper'>
       <Router>
         <Navbar />
+        <ScrollToTop />
         {openNotification && (<Notification message={notificationMessage} error={error}/>)}
         <Routes>
           <Route path='/' element={<HomePage />} />
