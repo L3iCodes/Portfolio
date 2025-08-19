@@ -9,7 +9,7 @@ import Modal from "../components/Modal";
 import Resume from "../assets/My_Resume.pdf"
 
 
-export default function Header({ main, subtitle, showContact = true, includeImg = false }){
+export default function Header({ main, subtitle, showContact = true, includeLocation = false, includeImg = false }){
 
     const [emailClicked, setEmailClicked] = useState(false)
     const [currentProfile, setCurrentProfile] = useState(profile)
@@ -33,13 +33,17 @@ export default function Header({ main, subtitle, showContact = true, includeImg 
                 <div className='flex gap-3 flex-col'>
                     <div className='flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 h-fit w-fit'>
                         <h1 className='order-2 sm:order-1'>{main}</h1>
-                        <p 
-                            className='flex items-center order-1 sm:order-2 gap-1 text-subtext bg-secondary w-fit px-2 border-1 border-accent rounded-[5px]
-                                        hover:bg-accent hover:text-text cursor-default'
-                            >
-                                <Icon icon="mynaui:location" width="20" height="20" />
-                                Oas, Albay, Philippines
-                        </p>
+                        
+                        {includeLocation && (
+                            <p 
+                                className='flex items-center order-1 sm:order-2 gap-1 text-subtext bg-secondary w-fit px-2 border-1 border-accent rounded-[5px]
+                                            hover:bg-accent hover:text-text cursor-default'
+                                >
+                                    <Icon icon="mynaui:location" width="20" height="20" />
+                                    Oas, Albay, Philippines
+                            </p>
+                        )}
+                        
                     </div>
                     
                     <h3 className="text-subtext">{subtitle}</h3>

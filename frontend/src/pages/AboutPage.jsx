@@ -9,6 +9,7 @@ export default function AboutPage(){
                 main={<span className="font-bold">About Me</span>}
                 subtitle={<>Hi, am <span className="font-medium text-text">Jan Wilhelm Sy</span>, a fresh Computer Science fresh graduate from Bicol University. <br/><br/>An aspiring full-stack developer. Interested in web development and AI. Currently, learning and mastering React and other backend technologies. My experience also include  deep learning and NLP projects developed during research and applied work.</>}
                 includeImg={true}
+                includeLocation={true}
             />
 
             <div className="flex flex-col gap-5 md:flex-row ">

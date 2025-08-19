@@ -26,6 +26,7 @@ export default function HomePage(){
                     main={<>Hey, I'm <span onClick={() => navigate('/about')} className="font-bold cursor-pointer hover:text-orange-400 active:text-text">Wilhelm</span></>}
                     subtitle={'Fresh graduate and aspiring full-stack developer with skills in React, backend technologies, and AI. Experience includes deep learning and NLP projects developed during research and applied work.'}
                     showContact={true}
+                    includeLocation={true}
                 />
 
                 <div className='flex mx-[10%] sm:mx-[0%] md:mx-[10%]'>
