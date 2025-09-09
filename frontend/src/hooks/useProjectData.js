@@ -1,5 +1,6 @@
 import  { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { retrieveAllProject, retrieveFeaturedProject, addProject, editProject, deleteProject } from '../api/projects'
+import TempProjectList from "../assets/temp_project.json"
 
 export function useProjectData() {
 
@@ -42,5 +43,5 @@ export function useProjectData() {
         },
     })
 
-    return { project_list, featured_list, add_project, edit_project, delete_project}
+    return { project_list, featured_list, add_project, edit_project, delete_project, TempProjectList}
 }

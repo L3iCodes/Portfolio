@@ -7,13 +7,20 @@ import { useProjectData } from '../hooks/useProjectData';
 import { usePreview } from '../hooks/usePreview';
 import { useNavigate } from 'react-router-dom'
 import CardLoading from '../components/CardLoading';
+import { useMemo } from 'react';
+
 
 
 export default function HomePage(){
-    const { featured_list } = useProjectData()
+    const { featured_list, TempProjectList } = useProjectData()
     const { data, isLoading, error } = featured_list;
     const {openPreview, project, onPreview, closePreview} = usePreview()
     const navigate = useNavigate()
+
+    // Temporary feature list while server is booting up
+    const tempFeaturedList = useMemo(() => {
+        return TempProjectList.filter(project => project.featured == true)
+    }, [])
 
     return(
         <>
@@ -41,7 +48,7 @@ export default function HomePage(){
                 <div className='flex flex-col'>
                     <h2 className='font-medium mb-8'>Featured Projects</h2>
                     {isLoading 
-                        ? <CardLoading />
+                        ? <ProjectList key={'project_list'} list={tempFeaturedList} onPreview={onPreview}/>
                         : <ProjectList key={'project_list'} list={data} onPreview={onPreview}/>
                     }
                 </div>

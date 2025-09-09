@@ -8,10 +8,10 @@ import CardLoading from "../components/CardLoading";
 
 
 export default function ProjectPage(){
-    const { project_list } = useProjectData()
+    const { project_list, TempProjectList } = useProjectData()
     const { data, isLoading, error } = project_list;
     const {openPreview, project, onPreview, closePreview} = usePreview()
-
+    
     return(
         <>
             {openPreview && (
@@ -25,18 +25,10 @@ export default function ProjectPage(){
                     showContact={false}
                 />
 
-                {/* {isLoading 
-                    ? <CardLoading />
-                    : data.length > 0 
-                        ? <ProjectList key={'project_list'} list={data} onPreview={onPreview}/>
-                        : <p className="text-subtext mt-[-20px]">No project yet</p>
-                } */}
-
                 {isLoading 
-                    ? <CardLoading />
+                    ? <ProjectList key={'TempProjectList'} list={data} onPreview={onPreview}/>
                     : <ProjectList key={'project_list'} list={data} onPreview={onPreview}/>
                 }
-                
             </div>
         </>
         

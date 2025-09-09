@@ -1,0 +1,261 @@
+[
+  {
+    "_id": "68a1b1047923cfb25b6e0b92",
+    "name": "Vysta",
+    "subtitle": "A movie discovery and watchlist management web application",
+    "description": "A React-based movie web app powered by TMDB. Users can browse and search for movies, create accounts, log in, and manage a personal watchlist. Built with React for the frontend, Node.js for the backend, and MongoDB for data storage.",
+    "tags": [
+      "React",
+      "TailwindCSS",
+      "NodeJS",
+      "ExpressJS",
+      "MongoDB"
+    ],
+    "features": [
+      {
+        "name": "Home Page",
+        "description": "View trending movies, top rated films, and upcoming releases in a carousel layout.",
+        "_id": "68a1b1047923cfb25b6e0b93"
+      },
+      {
+        "name": "Browse Movies",
+        "description": "Browse movies by genre with pagination. Each genre has its own dedicated page for easier discovery.",
+        "_id": "68a1b1047923cfb25b6e0b94"
+      },
+      {
+        "name": "Movie Details",
+        "description": "View detailed movie information including plot, cast, and similar movie recommendations.",
+        "_id": "68a1b1047923cfb25b6e0b95"
+      },
+      {
+        "name": "Search Functionality",
+        "description": "Search for movies with real-time results.",
+        "_id": "68a1b1047923cfb25b6e0b96"
+      },
+      {
+        "name": "User Authentication",
+        "description": "Register and login to access personalized features like watchlists.",
+        "_id": "68a1b1047923cfb25b6e0b97"
+      },
+      {
+        "name": "Watchlist",
+        "description": "Add movies to your personal watchlist and remove them as needed. Requires user account.",
+        "_id": "68a1b1047923cfb25b6e0b98"
+      }
+    ],
+    "featured": true,
+    "github_url": "https://github.com/L3iCodes/Vysta",
+    "demo_url": "N/A",
+    "image": {
+      "public_id": "Portfolio-Projects/VystaImg.png",
+      "name": "VystaImg.png",
+      "url": "http://res.cloudinary.com/dai4vqyxk/image/upload/v1755424682/Portfolio-Projects/VystaImg.png.png",
+      "_id": "68a1b1047923cfb25b6e0b99"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "68a29c7666d08c6c4c1abb5a",
+    "name": "Kanva",
+    "subtitle": "A modern, collaborative Kanban Board web application",
+    "description": "A collaborative Kanban Board web app built with React, Node.js, and MongoDB. Users can sign up, create and manage multiple project boards with drag-and-drop functionality.",
+    "tags": [
+      "React",
+      "TailwindCSS",
+      "NodeJS",
+      "ExpressJS",
+      "MongoDB"
+    ],
+    "features": [
+      {
+        "name": "User Authentication",
+        "description": "Simple user registration and login system. Create an account to save your boards and access them later.",
+        "_id": "68a29c7666d08c6c4c1abb5b"
+      },
+      {
+        "name": "Board Archive & Management",
+        "description": "Complete board lifecycle management with controls for creating, organizing, and maintaining your project boards.",
+        "_id": "68a29c7666d08c6c4c1abb5c"
+      },
+      {
+        "name": "Interactive Kanban Board",
+        "description": "Clean, responsive Kanban interface that adapts to your workflow needs. With customizable columns and real time updates.",
+        "_id": "68a29c7666d08c6c4c1abb5d"
+      },
+      {
+        "name": "Section and Task Management",
+        "description": "Comprehensive task organization with flexible section management and task operations.",
+        "_id": "68a29c7666d08c6c4c1abb5e"
+      },
+      {
+        "name": "Task Details Viewer",
+        "description": "Comprehensive task management modal with advanced features for detailed project tracking.",
+        "_id": "68a29c7666d08c6c4c1abb5f"
+      },
+      {
+        "name": "Drag and Drop",
+        "description": "Intuitive drag and drop interface for effortless task and section management.",
+        "_id": "68a29c7666d08c6c4c1abb60"
+      },
+      {
+        "name": "Team Collaboration",
+        "description": "invite team members to collaborate on your boards, send invitation using their username.",
+        "_id": "68a29c7666d08c6c4c1abb61"
+      }
+    ],
+    "featured": true,
+    "github_url": "https://github.com/L3iCodes/Kanva",
+    "demo_url": "https://kanva-xbv4.onrender.com",
+    "image": {
+      "public_id": "Portfolio-Projects/KanvaBoard.png",
+      "name": "KanvaBoard.png",
+      "url": "http://res.cloudinary.com/dai4vqyxk/image/upload/v1755492208/Portfolio-Projects/KanvaBoard.png.png",
+      "_id": "68a2af7266d08c6c4c1ac286"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "68a2c19c66d08c6c4c1ad16c",
+    "name": "BiasX",
+    "subtitle": "A Feature-Based Framework for Explaining and Quantifying Gender Bias in Face Classification.",
+    "description": "Undergraduate Thesis Project | Best Paper, College of Science. \n\nBiasX is a comprehensive framework for quantifying and explaining gender bias in face classification models using a feature-based approach. Rather than just measuring bias with traditional metrics, BiasX reveals which facial features contribute to gender-specific misclassifications, providing explainable and actionable insights.",
+    "tags": [
+      "Python",
+      "Tensorflow",
+      "HuggingFace",
+      "Mediapipe",
+      "Streamlit"
+    ],
+    "features": [
+      {
+        "name": "Feature Level Bias Analysis",
+        "description": "Identifies bias contributions from specific facial features (eyes, nose, lips, etc.).",
+        "_id": "68a2c19c66d08c6c4c1ad16d"
+      },
+      {
+        "name": "Visual Explanation Generation",
+        "description": "Creates activation maps to visualize model decision regions.",
+        "_id": "68a2c19c66d08c6c4c1ad16e"
+      },
+      {
+        "name": "Comprehensive Metrics",
+        "description": "Calculates both traditional (equalized odds) and feature-based bias scores.",
+        "_id": "68a2c19c66d08c6c4c1ad16f"
+      },
+      {
+        "name": "Dataset Management",
+        "description": "Handles facial image datasets with demographic attributes.",
+        "_id": "68a2c19c66d08c6c4c1ad170"
+      },
+      {
+        "name": "Experiment Framework",
+        "description": "Supports controlled experiments with manipulated gender distributions and masked facial features.",
+        "_id": "68a2c19c66d08c6c4c1ad171"
+      },
+      {
+        "name": "Interactive Visualization",
+        "description": "Includes a web application for exploring bias analysis results.",
+        "_id": "68a2c19c66d08c6c4c1ad172"
+      }
+    ],
+    "featured": true,
+    "github_url": "https://github.com/rixmape/biasx",
+    "demo_url": "https://www.youtube.com/watch?v=sni-J6CYu9U",
+    "image": {
+      "public_id": "Portfolio-Projects/BiasX.png",
+      "name": "BiasX.png",
+      "url": "http://res.cloudinary.com/dai4vqyxk/image/upload/v1755496859/Portfolio-Projects/BiasX.png.png",
+      "_id": "68a2c19c66d08c6c4c1ad173"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "68a2ed4331db26ba11aa12d1",
+    "name": " AIDentifye",
+    "subtitle": "Eye Disease Recognition Software",
+    "description": "Collaborated to develop a web-based AI application for eye disease detection and classification. Led the complete AI development pipeline including data preprocessing, model training, and deployment, while experimenting with multiple CNN pre-trained architectures to optimize accuracy. Also served as the primary front-end developer for the project. Also known as Project EDR.",
+    "tags": [
+      "Python",
+      "Tensorflow",
+      "Django"
+    ],
+    "features": [
+      {
+        "name": "Assess",
+        "description": "Capture or upload images of your eyes for assessment.",
+        "_id": "68a2ed4331db26ba11aa12d2"
+      },
+      {
+        "name": "Eye Detection",
+        "description": "Automatically crop and assess eye from facial images",
+        "_id": "68a2ed4331db26ba11aa12d3"
+      },
+      {
+        "name": "Library",
+        "description": "Explore information on six common eye conditions: normal, cataract, conjunctivitis, ectropion, trachoma, and pterygium, alongside details on their causes, symptoms, and preventative measures.",
+        "_id": "68a2ed4331db26ba11aa12d4"
+      }
+    ],
+    "featured": true,
+    "github_url": "https://github.com/CasualCodes/se-project-edr",
+    "demo_url": "N/A",
+    "image": {
+      "public_id": "Portfolio-Projects/AIDentifye.png",
+      "name": "AIDentifye.png",
+      "url": "http://res.cloudinary.com/dai4vqyxk/image/upload/v1755508173/Portfolio-Projects/AIDentifye.png.png",
+      "_id": "68a2edcd31db26ba11aa1403"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "68a2f0e231db26ba11aa1521",
+    "name": "Raya",
+    "subtitle": "Conversational AI for Unstructured Research Data",
+    "description": "A conversational AI system that processes unstructured research data and enables document retrieval through natural language queries.\n",
+    "tags": [
+      "Python",
+      "RAG",
+      "Ollama",
+      "LlamaIndex",
+      "VectorDB",
+      "Docker"
+    ],
+    "features": [
+      {
+        "name": "OCR",
+        "description": "Convert scanned/unstructured documents into machine-readable text.",
+        "_id": "68a2fc05ef9d8383db61a79c"
+      },
+      {
+        "name": "Document Repository",
+        "description": "Store, organize, and manage all uploaded documents.",
+        "_id": "68a2fc05ef9d8383db61a79d"
+      },
+      {
+        "name": "Multi",
+        "description": "Document Selection-Choose multiple documents as the context for a chat session.",
+        "_id": "68a2fc05ef9d8383db61a79e"
+      },
+      {
+        "name": "Conversational Search",
+        "description": "Ask natural language questions about selected documents.",
+        "_id": "68a2fc05ef9d8383db61a79f"
+      },
+      {
+        "name": "VectorDB Retrieval",
+        "description": "Perform semantic search for accurate and relevant answers.",
+        "_id": "68a2fc05ef9d8383db61a7a0"
+      }
+    ],
+    "featured": false,
+    "github_url": "https://github.com/jal9o3/OJTChatbotBEIC",
+    "demo_url": "N/A",
+    "image": {
+      "public_id": "Portfolio-Projects/Raya.png",
+      "name": "Raya.png",
+      "url": "http://res.cloudinary.com/dai4vqyxk/image/upload/v1755508962/Portfolio-Projects/Raya.png.png",
+      "_id": "68a2f0e231db26ba11aa1523"
+    },
+    "__v": 0
+  }
+]
