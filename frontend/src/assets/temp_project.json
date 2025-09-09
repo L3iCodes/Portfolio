@@ -158,7 +158,7 @@
         "_id": "68a2c19c66d08c6c4c1ad172"
       }
     ],
-    "featured": true,
+    "featured": false,
     "github_url": "https://github.com/rixmape/biasx",
     "demo_url": "https://www.youtube.com/watch?v=sni-J6CYu9U",
     "image": {
@@ -255,6 +255,30 @@
       "name": "Raya.png",
       "url": "http://res.cloudinary.com/dai4vqyxk/image/upload/v1755508962/Portfolio-Projects/Raya.png.png",
       "_id": "68a2f0e231db26ba11aa1523"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "68bfbf000ef59e5e6accdaec",
+    "name": "Kapi E-Commerce",
+    "subtitle": "A React-based e-commerce platform (Customer Side)",
+    "description": "This repository is a practice full-stack project for building an e-commerce platform called Kapi. The goal is to simulate an online store experience and practice working with React (frontend), Node.js/Express (backend), and MySQL (database).\n\nKapi is designed as a sample coffee e-commerce website, where users can browse products, add items to a cart, and manage their profiles. The project serves as a playground for learning modern full-stack development, experimenting with UI/UX design, and practicing database integration.",
+    "tags": [
+      "React",
+      "NodeJS",
+      "ExpressJS",
+      "MySQL",
+      "TailwindCSS"
+    ],
+    "features": [],
+    "featured": true,
+    "github_url": "https://github.com/L3iCodes/Kapi",
+    "demo_url": "N/A",
+    "image": {
+      "public_id": "Portfolio-Projects/KapiHome.png",
+      "name": "KapiHome.png",
+      "url": "http://res.cloudinary.com/dai4vqyxk/image/upload/v1757396736/Portfolio-Projects/KapiHome.png.png",
+      "_id": "68bfbf000ef59e5e6accdaed"
     },
     "__v": 0
   }
