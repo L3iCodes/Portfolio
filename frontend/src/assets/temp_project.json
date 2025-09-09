@@ -270,7 +270,43 @@
       "MySQL",
       "TailwindCSS"
     ],
-    "features": [],
+    "features": [
+      {
+        "name": "Login / Signup",
+        "description": "Authentication system for account creation and secure login.",
+        "_id": "68bfc14f1400f5120f1f6a1a"
+      },
+      {
+        "name": "Home",
+        "description": "Landing page with product highlights, categories, and promotions.",
+        "_id": "68bfc14f1400f5120f1f6a1b"
+      },
+      {
+        "name": "Product",
+        "description": "Browse products with filters, search, and sorting for a seamless shopping experience.",
+        "_id": "68bfc14f1400f5120f1f6a1c"
+      },
+      {
+        "name": "Cart",
+        "description": "View, update, or remove items before checkout.",
+        "_id": "68bfc14f1400f5120f1f6a1d"
+      },
+      {
+        "name": "Checkout",
+        "description": "Secure checkout process with order summary and payment options.",
+        "_id": "68bfc14f1400f5120f1f6a1e"
+      },
+      {
+        "name": "Order History",
+        "description": "Track past orders with details and status updates.",
+        "_id": "68bfc14f1400f5120f1f6a1f"
+      },
+      {
+        "name": "Profile & Address Settings",
+        "description": "Manage personal information, shipping addresses, and account preferences.",
+        "_id": "68bfc14f1400f5120f1f6a20"
+      }
+    ],
     "featured": true,
     "github_url": "https://github.com/L3iCodes/Kapi",
     "demo_url": "N/A",
