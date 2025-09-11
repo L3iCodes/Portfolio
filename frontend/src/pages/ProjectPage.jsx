@@ -26,7 +26,7 @@ export default function ProjectPage(){
                 />
 
                 {isLoading 
-                    ? <ProjectList key={'TempProjectList'} list={data} onPreview={onPreview}/>
+                    ? <ProjectList key={'TempProjectList'} list={TempProjectList} onPreview={onPreview}/>
                     : <ProjectList key={'project_list'} list={data} onPreview={onPreview}/>
                 }
             </div>
